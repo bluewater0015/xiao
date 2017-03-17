@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>react组件笔记</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background: #f5f5d5;
+		}
+		ul,li{
+			list-style: none;
+		}
+		.box{
+			width: 950px;
+			height: 3000px;
+			margin: 0 auto;
+		}
+		.color{
+			color: #d00;
+		}
+		.back{
+			background: #d00;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div>
+			<h2>四、组件</h2>
+			<p>
+				React允许将代码封装成组件(component),然后像插入普通HTML标签一样，在网页中插入这个组件。React.createClass方法
+				就用于生成一个组件类。
+			</p>
+			<img src="img/HelloMessage.png" alt="">
+			<ul>
+				<li>
+					1.变量HelloMessage就是一个组件，模板插入&lt;HelloMessage name="xiao" /&gt;时，就会自动
+					生成HelloMessage的一个实例。
+				</li>
+				<li>
+					2.所有的组件都必须有自己的render方法，用于输出组件.
+				</li>
+			</ul>
+			<h4>组件需要注意的事项：</h4>
+			<ul>
+				<li>1.组件类的第一个字母必须大写</li>
+				<li>2.组件只能包含一个顶层标签,比如像这样就会报错</li>
+				<li><img src="img/single.png" alt=""></li>
+			</ul>
+			<h4>组件的用法和HTML标签完全一致，可以任意加入属性</h4>
+			<ul>
+				<li>1.比如&lt;HelloMessage name="xiao" /&gt;就是HelloMessage组件加入一个name属性，值为xiao</li>
+				<li>2.组件的属性可以在组件类的this.props对象上获取，比如name属性就可以通过this.props.name读取</li>
+				<li></li>
+				<li><img src="img/result.png" alt=""></li>
+			</ul>
+			<h4>添加属性需要注意：</h4>
+			<ul>
+				<li>1.class属性要写成className</li>
+				<li>2.for属性要写成htmlFor</li>
+				<b>这是因为class和for是javascript的保留字</b>
+			</ul>
+			<div>
+				<h2>五、this.props.children</h2>
+				<p>
+					this.props对象的属性与组件的属性一一对应，但是有一个例外，就是this.props.children属性，它表示组件的所有子节点
+				</p>
+				<img src="img/this.png" alt="">
+				<ul>
+					<li>React提供一个工具方法：React.Children()来处理this.props.children</li>
+				</ul>
+			</div>
+			<div>
+				<h2>六、ProTypes</h2>
+				<p>
+					组件的属性可以接受任意值、字符串、对象、函数等等。有时,我们需要一种机制，验证别人使用组件时，提供的参数是否符合要求
+				</p>
+				<p>组件类的ProTypes属性，就是用来验证组件实例的的属性是否符合要求</p>
+				<p class="color">为什么要验证别人使用组件时，提供的参数是否符合要求？</p>
+				<img src="img/PropTypes.png" alt="">
+				<b>注意箭头所指之处，p的大小写</b>
+				<p>此外，getDefultProps方法可以用来设置组件属性的默认值</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

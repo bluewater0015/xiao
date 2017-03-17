@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>this.props.children</title>
+	<script src="js/react.js"></script>
+	<script src="js/react-dom.js"></script>
+	<script src="js/browser.min.js"></script>
+</head>
+<body>
+	<script type="text/babel">
+		var NodeList = React.createClass({
+			render: function(){
+				return (
+					<ol>
+						{
+							React.Children.map(this.props.children,function(child){
+								return <li>{child}</li>;
+							})
+						}
+					</ol>
+				);
+			}
+		});
+
+		ReactDOM.render(
+			<NodeList>
+				<span>hello</span>
+				<span>world</span>
+			</NodeList>,
+			document.body
+		);
+
+	</script>
+</body>
+</html>
